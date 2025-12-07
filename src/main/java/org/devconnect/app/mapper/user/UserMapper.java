@@ -6,6 +6,7 @@ import org.devconnect.app.dtos.user.UserUpdateDto;
 import org.devconnect.app.entities.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {
@@ -17,7 +18,7 @@ public interface UserMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "createdDate", ignore = true)
     @Mapping(target = "updatedDate", expression = "java(java.time.LocalDateTime.now())")
-    User toUpdateEntity(UserUpdateDto dto);
+    void toUpdateEntity(UserUpdateDto dto, @MappingTarget User user);
 
     UserDto toDto(User user);
 }
