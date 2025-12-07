@@ -1,7 +1,7 @@
 package org.devconnect.app.services.impls;
 
 import jakarta.transaction.Transactional;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.devconnect.app.constants.ExceptionMessage;
 import org.devconnect.app.dtos.user.UserCreateDto;
 import org.devconnect.app.dtos.user.UserDto;
@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 @Service
 @Transactional
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
     private final UserMapper userMapper;
     private final UserRepository userRepository;
